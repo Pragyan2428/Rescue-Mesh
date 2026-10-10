@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    background: #07111b;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-night font-sans text-ink antialiased;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+    font-stretch: 110%;
+  }
+  :focus-visible {
+    outline: 2px solid #ff9e43;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  ::selection {
+    background: rgba(97, 230, 224, 0.3);
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-label text-mist;
+  }
+  .panel {
+    @apply rounded-lg border border-line bg-surface/90;
+  }
+  .panel-glass {
+    @apply rounded-lg border border-line/80 bg-night/75 backdrop-blur-md;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .chapter-no {
+    @apply font-mono text-xs tracking-label text-amber;
+  }
+  .lede {
+    @apply max-w-[62ch] text-lg leading-relaxed text-mist;
+  }
+  .scene-label {
+    @apply pointer-events-none absolute left-0 top-0 whitespace-nowrap rounded border border-line/80 bg-night/85 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-ink opacity-0 transition-opacity duration-300;
+    will-change: transform;
+  }
+}
+
+.loader-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #61e6e0;
+  box-shadow: 0 0 0 0 rgba(97, 230, 224, 0.6);
+  animation: ping 1.4s ease-out infinite;
+}
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(97, 230, 224, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(97, 230, 224, 0);
+  }
+}
+.flow-dash {
+  stroke-dasharray: 6 6;
+  animation: flowdash 1.1s linear infinite;
+}
+@keyframes flowdash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.blink {
+  animation: blink 1.2s steps(2, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+input[type='range'] {
+  accent-color: #ff9e43;
+  height: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* grid children may hold wide tables/diagrams: let them shrink and scroll inside */
+.grid > * {
+  min-width: 0;
+}

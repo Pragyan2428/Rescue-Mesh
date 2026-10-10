@@ -1,0 +1,31 @@
+{
+  "name": "rescuemesh",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "RescueMesh: immersive 3D story and simulation of a self-powered drone-dock relay network (BuildForge).",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "build:offline": "node scripts/build-offline.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.12.5",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/three": "0.169.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.3",
+    "vite": "5.4.8"
+  }
+}
